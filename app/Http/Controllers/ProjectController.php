@@ -121,7 +121,7 @@ class ProjectController extends Controller
      * @param  \App\project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy(project $project)
+    public function destroy(project $project,$id)
     {
         //
     }
