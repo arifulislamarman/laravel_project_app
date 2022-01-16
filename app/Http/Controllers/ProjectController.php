@@ -80,9 +80,13 @@ class ProjectController extends Controller
      * @param  \App\project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(project $project)
+    public function edit(project $project, $id)
     {
         //
+        $project = project::findOrFail($id);
+        return view('projects.edit', [
+            'project' => $project
+        ]);
     }
 
     /**
@@ -92,9 +96,23 @@ class ProjectController extends Controller
      * @param  \App\project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, project $project)
+    public function update(Request $request, project $project,$id)
     {
         //
+
+        $this->validate($request,[
+            'name' => 'required',
+            'body' => 'required'
+        ]);
+
+        $project = project::findOrFail($id);
+
+        $project->name = request('name');
+        $project->body = request('body');
+
+        $project->save();
+
+        return redirect('/projects');
     }
 
     /**

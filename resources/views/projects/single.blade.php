@@ -4,6 +4,10 @@
 <section>
     <h2>{{$project->name}}</h2>
     <p>{{$project->body}}</p>
-</section>
+
+    <a href="/projects/{{$project->id}}/edit"> Edit </a> <a href="/projects">Back to the project </a>
    
+</section>
+
+
 @endsection
