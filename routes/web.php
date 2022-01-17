@@ -23,4 +23,4 @@ Route::post('/create-project','ProjectController@store');
 
 Route::get('/projects/{id}/edit','ProjectController@edit');
 Route::put('/projects/{id}/edit','ProjectController@update');
-Route::put('/projects/{id}/delete','ProjectController@destroy');
+Route::get('/projects/{id}/delete','ProjectController@destroy');

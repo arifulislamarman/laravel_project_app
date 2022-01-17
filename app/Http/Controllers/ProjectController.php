@@ -124,5 +124,9 @@ class ProjectController extends Controller
     public function destroy(project $project,$id)
     {
         //
+        $project = project::findOrFail($id);
+        $project->delete();
+
+        return redirect('/projects');
     }
 }
